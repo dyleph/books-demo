@@ -33,12 +33,10 @@ public final class SharedDomainSharedDataFixture {
         return books;
     }
 
-    //public static Map<Publisher, Map<BookTypes, BookInventory>> standardBook() {
-    public static Map<String, Publisher> standardBook() {
-        return Map.of("Testing", Publisher.PUBLISHER_1);
-        //return Map.of(Publisher.PUBLISHER_1,
-        //        Map.of(BookTypes.FICTION,
-        //                new BookInventory(new BookInventory.Inventory(10, 1),
-        //                        Map.of(501L, new BookInventory.Inventory(1, 1)))));
+    public static Map<Publisher, Map<BookTypes, BookInventory>> standardBook() {
+        return Map.of(Publisher.PUBLISHER_1,
+                Map.of(BookTypes.FICTION,
+                        new BookInventory(new BookInventory.Inventory(10, 1),
+                                Map.of(501L, new BookInventory.Inventory(1, 1)))));
     }
 }

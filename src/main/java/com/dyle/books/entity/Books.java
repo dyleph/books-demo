@@ -32,14 +32,12 @@ public class Books {
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    //private Map<Publisher, Map<BookTypes, BookInventory>> bookDetails;
-    private Map<String, Publisher> bookDetails;
+    private Map<Publisher, Map<BookTypes, BookInventory>> bookDetails;
 
     @Version
     private Long version;
 
-    //public Books(Long id, Map<Publisher, Map<BookTypes, BookInventory>> bookDetails) {
-    public Books(Long id, Map<String, Publisher> bookDetails) {
+    public Books(Long id, Map<Publisher, Map<BookTypes, BookInventory>> bookDetails) {
         Assert.notNull(id, "id must not be null");
         Assert.notNull(bookDetails, "books must not be null");
 
@@ -47,8 +45,7 @@ public class Books {
         this.bookDetails = bookDetails;
     }
 
-    //public void update(Map<Publisher, Map<BookTypes, BookInventory>> bookDetails) {
-    public void update(Map<String, Publisher> bookDetails) {
+    public void update(Map<Publisher, Map<BookTypes, BookInventory>> bookDetails) {
         Assert.notNull(bookDetails, "books must not be null");
 
         if (this.bookDetails.equals(bookDetails)) {
