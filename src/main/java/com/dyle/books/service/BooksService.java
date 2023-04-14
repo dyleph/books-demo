@@ -18,7 +18,8 @@ public class BooksService {
     private final BooksRepository booksRepository;
 
     @Retry(name = ResilienceConfiguration.DATA_ACCESS_RETRY_NAME)
-    public void save(Long id, Map<Publisher, Map<Codes.BookTypes, Books.BookInventory>> bookDetails) {
+    //public void save(Long id, Map<Publisher, Map<Codes.BookTypes, Books.BookInventory>> bookDetails) {
+    public void save(Long id, Map<String, Publisher> bookDetails) {
         Assert.notNull(id, "id must not be null");
 
 
