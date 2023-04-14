@@ -1,0 +1,30 @@
+# Database settings
+spring.jpa:
+  hibernate.ddl-auto: update
+  properties.hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    format_sql: true
+  show-sql: true
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:15432/sample
+    username: sample
+    password: 5dm7BZnATbgW77dT
+    hikari:
+      maximum-pool-size: 2
+
+# Resilience
+resilience4j:
+  retry:
+    configs:
+      default:
+        maxAttempts: 3
+        waitDuration: 100ms
+    instances:
+      data-access:
+        baseConfig: default
+        retryExceptions:
+          - org.springframework.dao.DataIntegrityViolationException
+          - org.springframework.dao.OptimisticLockingFailureException
